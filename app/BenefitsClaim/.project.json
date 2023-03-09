@@ -1,0 +1,83 @@
+{
+	"Credential": "cf",
+	"CF": {
+		"Target": "",
+		"Organization": "",
+		"Space": "",
+		"Deploy": {
+			"Description": "My SAP application",
+			"WebClient": {
+				"Runtime": "preview",
+				"URL": ""
+			},
+			"Destination": [
+				{
+					"CF": "MKBenefitApplication-app-srv",
+					"MDK": "../service/MKBenefitApplication/",
+					"URL": ""
+				}
+			]
+		}
+	},
+	"MobileService": {
+		"Type": "standard",
+		"AdminAPI": "",
+		"AppId": "lcap.MKBenefitApplication.BenefitsClaim",
+		"Destination": []
+	},
+	"Onboarding": {
+		"Schema": "sapmobilesvcs",
+		"TimeZone": "UTC",
+		"URL": ""
+	},
+	"LCAP": {
+		"FullName": "MKBenefitApplication_BenefitsClaim",
+		"Service": [
+			{
+				"mdk": "BenefitsClaim/Services/service1.service",
+				"cap": {
+					"name": "MKBenefitApplicationService",
+					"sourcePath": "srv/service.cds",
+					"path": "/service/MKBenefitApplication/",
+					"entryPath": "/service/MKBenefitApplication",
+					"destination": "MKBenefitApplication-app-srv",
+					"value": "0"
+				},
+				"links": [
+					{
+						"entity": "MKBenefitApplicationService.ClaimTypes",
+						"files": [
+							"BenefitsClaim/Pages/Claims/Claims_Create.page"
+						]
+					},
+					{
+						"entity": "MKBenefitApplicationService.Claims",
+						"files": [
+							"BenefitsClaim/Pages/Claims/Claims_Detail.page",
+							"BenefitsClaim/Pages/Claims/Claims_Edit.page",
+							"BenefitsClaim/Pages/Claims/Claims_List.page",
+							"BenefitsClaim/Actions/Claims/Claims_CreateEntity.action",
+							"BenefitsClaim/Actions/Claims/Claims_DeleteEntity.action",
+							"BenefitsClaim/Actions/Claims/Claims_UpdateEntity.action"
+						]
+					},
+					{
+						"entity": "MKBenefitApplicationService.Receipts",
+						"files": [
+							"BenefitsClaim/Pages/Receipts/Receipts_Detail.page",
+							"BenefitsClaim/Pages/Receipts/Receipts_Edit.page",
+							"BenefitsClaim/Actions/Claims/Claims_CreateReceipts.action",
+							"BenefitsClaim/Actions/Receipts/Receipts_DeleteEntity.action",
+							"BenefitsClaim/Actions/Receipts/Receipts_UpdateEntity.action",
+							"BenefitsClaim/Actions/Receipts/Receipts_UploadStream.action"
+						]
+					}
+				]
+			}
+		],
+		"sourceTemplate": {
+			"id": "html5moduletemplates.basicSAPUI5ApplicationProjectModule",
+			"version": "1.40.12"
+		}
+	}
+}

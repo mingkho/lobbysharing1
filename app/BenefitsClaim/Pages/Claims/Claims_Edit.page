@@ -1,0 +1,81 @@
+{
+	"Caption": "Update Claims Detail",
+	"DesignTimeTarget": {
+		"Service": "/BenefitsClaim/Services/service1.service",
+		"EntitySet": "Claims",
+		"QueryOptions": ""
+	},
+	"ActionBar": {
+		"Items": [
+			{
+				"Position": "Left",
+				"Caption": "Cancel",
+				"OnPress": "/BenefitsClaim/Rules/Claims/Claims_Cancel.js"
+			},
+			{
+				"Position": "Right",
+				"SystemItem": "Save",
+				"OnPress": "/BenefitsClaim/Rules/Claims/Claims_UpdateEntity.js"
+			}
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Caption": "",
+					"Controls": [
+						{
+							"Mode": "Date",
+							"_Name": "ClaimDate",
+							"Value": "{ClaimDate}",
+							"Caption": "ClaimDate",
+							"_Type": "Control.Type.FormCell.DatePicker"
+						},
+						{
+							"Caption": "Provider",
+							"_Name": "Provider",
+							"Value": "{Provider}",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "Amount",
+							"_Name": "Amount",
+							"Value": "{Amount}",
+							"KeyboardType": "Number",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "Comment",
+							"_Name": "Comment",
+							"Value": "{Comment}",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "ClaimTypes_ID",
+							"AllowMultipleSelection": false,
+							"AllowEmptySelection": true,
+							"IsPickerDismissedOnSelection": true,
+							"IsSelectedSectionEnabled": true,
+							"PickerItems": {
+								"DisplayValue": "{Description}",
+								"ReturnValue": "{ID}",
+								"Target": {
+									"EntitySet": "ClaimTypes",
+									"Service": "/BenefitsClaim/Services/service1.service"
+								}
+							},
+							"Value": "{ClaimTypes_ID}",
+							"_Name": "ClaimTypes_ID",
+							"_Type": "Control.Type.FormCell.ListPicker"
+						}
+					]
+				}
+			],
+			"_Name": "PageOneFormCell",
+			"_Type": "Control.Type.FormCellContainer"
+		}
+	],
+	"_Type": "Page",
+	"_Name": "Claims_Edit"
+}

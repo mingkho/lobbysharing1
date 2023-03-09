@@ -1,0 +1,21 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "Claims",
+        "Service": "/BenefitsClaim/Services/service1.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Properties": {
+        "ClaimDate": "#Control:ClaimDate/#Value",
+        "Provider": "#Control:Provider/#Value",
+        "Amount": "#Control:Amount/#Value",
+        "Comment": "#Control:Comment/#Value",
+        "ClaimTypes_ID": "#Control:ClaimTypes_ID/#SelectedValue"
+    },
+    "UpdateLinks": [],
+    "ActionResult": {
+        "_Name": "update"
+    },
+    "OnSuccess": "/BenefitsClaim/Actions/UpdateEntitySuccessMessage.action",
+    "OnFailure": "/BenefitsClaim/Actions/UpdateEntityFailureMessage.action"
+}

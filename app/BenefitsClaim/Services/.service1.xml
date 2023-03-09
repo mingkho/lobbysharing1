@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="MKBenefitApplicationService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityContainer Name="EntityContainer">
+        <EntitySet Name="Claims" EntityType="MKBenefitApplicationService.Claims">
+          <NavigationPropertyBinding Path="ClaimReceipts" Target="Receipts"/>
+          <NavigationPropertyBinding Path="ClaimTypes" Target="ClaimTypes"/>
+        </EntitySet>
+        <EntitySet Name="Receipts" EntityType="MKBenefitApplicationService.Receipts">
+          <NavigationPropertyBinding Path="Claim" Target="Claims"/>
+        </EntitySet>
+        <EntitySet Name="ClaimTypes" EntityType="MKBenefitApplicationService.ClaimTypes"/>
+      </EntityContainer>
+      <EntityType Name="Claims">
+        <Key>
+          <PropertyRef Name="ClaimID"/>
+        </Key>
+        <Property Name="ClaimID" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="ClaimDate" Type="Edm.Date"/>
+        <Property Name="Provider" Type="Edm.String" MaxLength="100"/>
+        <Property Name="Amount" Type="Edm.Decimal" Scale="2" Precision="12"/>
+        <Property Name="Comment" Type="Edm.String" MaxLength="100"/>
+        <NavigationProperty Name="ClaimReceipts" Type="Collection(MKBenefitApplicationService.Receipts)" Partner="Claim"/>
+        <NavigationProperty Name="ClaimTypes" Type="MKBenefitApplicationService.ClaimTypes">
+          <ReferentialConstraint Property="ClaimTypes_ID" ReferencedProperty="ID"/>
+        </NavigationProperty>
+        <Property Name="ClaimTypes_ID" Type="Edm.Int32"/>
+      </EntityType>
+      <EntityType Name="Receipts">
+        <Key>
+          <PropertyRef Name="ReceiptID"/>
+        </Key>
+        <Property Name="ReceiptID" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="ReceiptNumber" Type="Edm.String" MaxLength="100"/>
+        <Property Name="ReceiptDate" Type="Edm.Date"/>
+        <Property Name="Attachment" Type="Edm.Stream"/>
+        <Property Name="FileType" Type="Edm.String" MaxLength="100"/>
+        <NavigationProperty Name="Claim" Type="MKBenefitApplicationService.Claims" Partner="ClaimReceipts">
+          <ReferentialConstraint Property="Claim_ClaimID" ReferencedProperty="ClaimID"/>
+        </NavigationProperty>
+        <Property Name="Claim_ClaimID" Type="Edm.Guid"/>
+      </EntityType>
+      <EntityType Name="ClaimTypes">
+        <Key>
+          <PropertyRef Name="ID"/>
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+        <Property Name="Description" Type="Edm.String" MaxLength="100"/>
+      </EntityType>
+      <Annotations Target="MKBenefitApplicationService.Claims/ClaimID">
+        <Annotation Term="Core.Computed" Bool="true"/>
+      </Annotations>
+      <Annotations Target="MKBenefitApplicationService.Receipts/ReceiptID">
+        <Annotation Term="Core.Computed" Bool="true"/>
+      </Annotations>
+      <Annotations Target="MKBenefitApplicationService.Receipts/Attachment">
+        <Annotation Term="Core.MediaType" Path="FileType"/>
+      </Annotations>
+      <Annotations Target="MKBenefitApplicationService.Receipts/FileType">
+        <Annotation Term="Core.IsMediaType" Bool="true"/>
+      </Annotations>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

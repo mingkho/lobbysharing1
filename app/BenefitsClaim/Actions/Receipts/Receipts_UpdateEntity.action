@@ -1,0 +1,19 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "Receipts",
+        "Service": "/BenefitsClaim/Services/service1.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Properties": {
+        "ReceiptNumber": "#Control:ReceiptNumber/#Value",
+        "ReceiptDate": "#Control:ReceiptDate/#Value",
+        "FileType": "#Control:FileType/#Value"
+    },
+    "UpdateLinks": [],
+    "ActionResult": {
+        "_Name": "update"
+    },
+    "OnSuccess": "/BenefitsClaim/Actions/UpdateEntitySuccessMessage.action",
+    "OnFailure": "/BenefitsClaim/Actions/UpdateEntityFailureMessage.action"
+}

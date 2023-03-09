@@ -1,0 +1,59 @@
+{
+	"ActionBar": {
+		"Items": [
+			{
+				"OnPress": "/BenefitsClaim/Actions/CloseModalPage_Cancel.action",
+				"Position": "Left",
+				"SystemItem": "Cancel"
+			},
+			{
+				"OnPress": "/BenefitsClaim/Rules/Claims/Claims_CreateReceipts.js",
+				"Position": "Right",
+				"SystemItem": "Save"
+			}
+		]
+	},
+	"Caption": "Create Receipts",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Controls": [
+						{
+							"Caption": "ReceiptNumber",
+							"_Name": "ReceiptNumber",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Mode": "Date",
+							"_Name": "ReceiptDate",
+							"Caption": "ReceiptDate",
+							"_Type": "Control.Type.FormCell.DatePicker"
+						},
+						{
+							"AttachmentTitle": "Attachment",
+							"AttachmentAddTitle": "Browse",
+							"AttachmentActionType": [
+								"AddPhoto",
+								"TakePhoto",
+								"SelectFile"
+							],
+							"AllowedFileTypes": [],
+							"_Name": "Attachment",
+							"_Type": "Control.Type.FormCell.Attachment"
+						},
+						{
+							"Caption": "FileType",
+							"_Name": "FileType",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						}
+					]
+				}
+			],
+			"_Name": "FormCellContainer",
+			"_Type": "Control.Type.FormCellContainer"
+		}
+	],
+	"_Type": "Page",
+	"_Name": "Claims_CreateReceipts"
+}

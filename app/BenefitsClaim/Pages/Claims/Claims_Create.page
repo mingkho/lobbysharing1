@@ -1,0 +1,79 @@
+{
+	"Controls": [
+		{
+			"_Type": "Control.Type.FormCellContainer",
+			"_Name": "FormCellContainer",
+			"Sections": [
+				{
+					"Controls": [
+						{
+							"_Type": "Control.Type.FormCell.ListPicker",
+							"_Name": "ClaimTypes_ID",
+							"IsEditable": true,
+							"AllowMultipleSelection": false,
+							"AllowEmptySelection": true,
+							"Caption": "Claim Types",
+							"IsSelectedSectionEnabled": true,
+							"IsPickerDismissedOnSelection": true,
+							"PickerItems": {
+								"DisplayValue": "{Description}",
+								"ReturnValue": "{ID}",
+								"Target": {
+									"EntitySet": "ClaimTypes",
+									"Service": "/BenefitsClaim/Services/service1.service"
+								}
+							}
+						},
+						{
+							"_Type": "Control.Type.FormCell.DatePicker",
+							"_Name": "ClaimDate",
+							"Caption": "ClaimDate",
+							"Mode": "Date"
+						},
+						{
+							"_Type": "Control.Type.FormCell.SimpleProperty",
+							"_Name": "Provider",
+							"Caption": "Provider"
+						},
+						{
+							"_Type": "Control.Type.FormCell.SimpleProperty",
+							"_Name": "Amount",
+							"Caption": "Amount",
+							"KeyboardType": "Number"
+						},
+						{
+							"_Type": "Control.Type.FormCell.SimpleProperty",
+							"_Name": "Comment",
+							"Caption": "Comment"
+						}
+					],
+					"Visible": true
+				}
+			]
+		}
+	],
+	"_Type": "Page",
+	"_Name": "Claims_Create",
+	"Caption": "Create Claims Detail",
+	"ActionBar": {
+		"Items": [
+			{
+				"_Name": "ActionBarItem0",
+				"Caption": "",
+				"SystemItem": "Cancel",
+				"Position": "Left",
+				"IsIconCircular": false,
+				"OnPress": "/BenefitsClaim/Actions/CloseModalPage_Cancel.action"
+			},
+			{
+				"_Name": "ActionBarItem1",
+				"Caption": "",
+				"SystemItem": "Save",
+				"Position": "Right",
+				"IsIconCircular": false,
+				"OnPress": "/BenefitsClaim/Rules/Claims/Claims_CreateEntity.js"
+			}
+		],
+		"_Name": "ActionBar1"
+	}
+}

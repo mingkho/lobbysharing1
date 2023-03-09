@@ -1,0 +1,72 @@
+{
+	"Caption": "Receipts Detail",
+	"DesignTimeTarget": {
+		"Service": "/BenefitsClaim/Services/service1.service",
+		"EntitySet": "Receipts",
+		"QueryOptions": ""
+	},
+	"ActionBar": {
+		"Items": [
+			{
+				"OnPress": "/BenefitsClaim/Rules/Receipts/NavToReceipts_Edit.js",
+				"Position": "Right",
+				"SystemItem": "Edit"
+			},
+			{
+				"OnPress": "/BenefitsClaim/Actions/Receipts/Receipts_DetailPopover.action",
+				"Position": "Right",
+				"Caption": "More"
+			}
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"ObjectHeader": {
+						"Tags": [],
+						"DetailImage": "/BenefitsClaim/Services/service1.service/{@odata.readLink}/Attachment",
+						"HeadlineText": "{ReceiptNumber}",
+						"Subhead": "{ReceiptDate}",
+						"BodyText": "",
+						"Footnote": "",
+						"Description": "{FileType}",
+						"StatusText": "",
+						"StatusImage": "",
+						"SubstatusImage": "",
+						"SubstatusText": ""
+					},
+					"_Type": "Section.Type.ObjectHeader"
+				},
+				{
+					"KeyAndValues": [
+						{
+							"KeyName": "ReceiptNumber",
+							"Value": "{ReceiptNumber}"
+						},
+						{
+							"KeyName": "ReceiptDate",
+							"Value": "{ReceiptDate}"
+						},
+						{
+							"KeyName": "FileType",
+							"Value": "{FileType}"
+						}
+					],
+					"Layout": {
+						"NumberOfColumns": 2
+					},
+					"MaxItemCount": 1,
+					"_Name": "SectionKeyValue0",
+					"_Type": "Section.Type.KeyValue"
+				}
+			],
+			"DataSubscriptions": [],
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "SectionedTable"
+		}
+	],
+	"_Type": "Page",
+	"_Name": "Receipts_Detail",
+	"PrefersLargeCaption": true
+}

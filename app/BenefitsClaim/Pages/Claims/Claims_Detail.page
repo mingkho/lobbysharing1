@@ -1,0 +1,116 @@
+{
+	"Caption": "Claims Detail",
+	"DesignTimeTarget": {
+		"Service": "/BenefitsClaim/Services/service1.service",
+		"EntitySet": "Claims",
+		"QueryOptions": ""
+	},
+	"ActionBar": {
+		"Items": [
+			{
+				"OnPress": "/BenefitsClaim/Rules/Claims/NavToClaims_Edit.js",
+				"Position": "Right",
+				"SystemItem": "Edit"
+			},
+			{
+				"OnPress": "/BenefitsClaim/Actions/Claims/Claims_DetailPopover.action",
+				"Position": "Right",
+				"Caption": "More"
+			}
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"ObjectHeader": {
+						"Tags": [],
+						"DetailImage": "",
+						"HeadlineText": "{ClaimTypes_ID}",
+						"Subhead": "{ClaimDate}",
+						"BodyText": "",
+						"Footnote": "{Amount}",
+						"Description": "{Provider}",
+						"StatusText": "{Comment}",
+						"StatusImage": "",
+						"SubstatusImage": "",
+						"SubstatusText": ""
+					},
+					"_Type": "Section.Type.ObjectHeader"
+				},
+				{
+					"KeyAndValues": [
+						{
+							"KeyName": "ClaimDate",
+							"Value": "{ClaimDate}"
+						},
+						{
+							"KeyName": "Provider",
+							"Value": "{Provider}"
+						},
+						{
+							"KeyName": "Amount",
+							"Value": "{Amount}"
+						},
+						{
+							"KeyName": "Comment",
+							"Value": "{Comment}"
+						},
+						{
+							"KeyName": "ClaimTypes_ID",
+							"Value": "{ClaimTypes_ID}"
+						}
+					],
+					"Layout": {
+						"NumberOfColumns": 2
+					},
+					"MaxItemCount": 1,
+					"_Name": "SectionKeyValue0",
+					"_Type": "Section.Type.KeyValue"
+				},
+				{
+					"Header": {
+						"Caption": "ClaimReceipts"
+					},
+					"ObjectCell": {
+						"AccessoryType": "disclosureIndicator",
+						"Description": "{FileType}",
+						"AvatarStack": {
+							"Avatars": [
+								{
+									"Image": "/BenefitsClaim/Services/service1.service/{@odata.readLink}/Attachment"
+								}
+							],
+							"ImageIsCircular": false
+						},
+						"Icons": [],
+						"StatusImage": "",
+						"Title": "{ReceiptNumber}",
+						"Footnote": "",
+						"PreserveIconStackSpacing": false,
+						"StatusText": "",
+						"Subhead": "{ReceiptDate}",
+						"SubstatusText": "",
+						"OnPress": "/BenefitsClaim/Actions/Receipts/NavToReceipts_Detail.action"
+					},
+					"EmptySection": {
+						"Caption": "No record found!"
+					},
+					"Target": {
+						"EntitySet": "{@odata.readLink}/ClaimReceipts",
+						"Service": "/BenefitsClaim/Services/service1.service"
+					},
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"DataSubscriptions": [
+				"Receipts"
+			],
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "SectionedTable"
+		}
+	],
+	"_Type": "Page",
+	"_Name": "Claims_Detail",
+	"PrefersLargeCaption": true
+}

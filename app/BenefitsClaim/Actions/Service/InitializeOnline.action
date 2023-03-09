@@ -1,0 +1,10 @@
+{
+    "Service": "/BenefitsClaim/Services/service1.service",
+    "_Type": "Action.Type.ODataService.Initialize",
+    "ShowActivityIndicator": true,
+    "OnSuccess": "/BenefitsClaim/Actions/Service/InitializeOnlineSuccessMessage.action",
+    "OnFailure": "/BenefitsClaim/Actions/Service/InitializeOnlineFailureMessage.action",
+    "ActionResult": {
+        "_Name": "init"
+    }
+}

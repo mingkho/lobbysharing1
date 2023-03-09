@@ -1,0 +1,6 @@
+{
+    "ModalPageFullscreen": false,
+    "ModalPage": true,
+    "PageToOpen": "/BenefitsClaim/Pages/Receipts/Receipts_Edit.page",
+    "_Type": "Action.Type.Navigation"
+}

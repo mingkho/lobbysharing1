@@ -1,0 +1,56 @@
+{
+	"Caption": "Update Receipts Detail",
+	"DesignTimeTarget": {
+		"Service": "/BenefitsClaim/Services/service1.service",
+		"EntitySet": "Receipts",
+		"QueryOptions": ""
+	},
+	"ActionBar": {
+		"Items": [
+			{
+				"Position": "Left",
+				"Caption": "Cancel",
+				"OnPress": "/BenefitsClaim/Rules/Receipts/Receipts_Cancel.js"
+			},
+			{
+				"Position": "Right",
+				"SystemItem": "Save",
+				"OnPress": "/BenefitsClaim/Rules/Receipts/Receipts_UpdateEntity.js"
+			}
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Caption": "",
+					"Controls": [
+						{
+							"Caption": "ReceiptNumber",
+							"_Name": "ReceiptNumber",
+							"Value": "{ReceiptNumber}",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Mode": "Date",
+							"_Name": "ReceiptDate",
+							"Value": "{ReceiptDate}",
+							"Caption": "ReceiptDate",
+							"_Type": "Control.Type.FormCell.DatePicker"
+						},
+						{
+							"Caption": "FileType",
+							"_Name": "FileType",
+							"Value": "{FileType}",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						}
+					]
+				}
+			],
+			"_Name": "PageOneFormCell",
+			"_Type": "Control.Type.FormCellContainer"
+		}
+	],
+	"_Type": "Page",
+	"_Name": "Receipts_Edit"
+}

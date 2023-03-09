@@ -1,0 +1,17 @@
+{
+    "_Type": "Action.Type.ODataService.UploadStream",
+    "Target": {
+        "Service": "/BenefitsClaim/Services/service1.service",
+        "EntitySet": "Receipts",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Properties": {
+        "Attachment": "#Control:Attachment/#Value"
+    },
+    "ShowActivityIndicator": true,
+    "ActionResult": {
+        "_Name": "uploadstream"
+    },
+    "OnSuccess": "/BenefitsClaim/Actions/UploadStreamSuccessMessage.action",
+    "OnFailure": "/BenefitsClaim/Actions/UploadStreamFailureMessage.action"
+}

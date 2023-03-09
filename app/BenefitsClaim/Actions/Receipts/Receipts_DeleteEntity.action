@@ -1,0 +1,13 @@
+{
+    "Target": {
+        "EntitySet": "Receipts",
+        "Service": "/BenefitsClaim/Services/service1.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "OnSuccess": "/BenefitsClaim/Actions/DeleteEntitySuccessMessage.action",
+    "OnFailure": "/BenefitsClaim/Actions/DeleteEntityFailureMessage.action",
+    "ActionResult": {
+        "_Name": "delete"
+    },
+    "_Type": "Action.Type.ODataService.DeleteEntity"
+}

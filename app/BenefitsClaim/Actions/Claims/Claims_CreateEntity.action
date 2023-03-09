@@ -1,0 +1,20 @@
+{
+    "CreateLinks": [],
+    "OnFailure": "/BenefitsClaim/Actions/CreateEntityFailureMessage.action",
+    "OnSuccess": "/BenefitsClaim/Actions/CreateEntitySuccessMessage.action",
+    "Properties": {
+        "ClaimDate": "#Control:ClaimDate/#Value",
+        "Provider": "#Control:Provider/#Value",
+        "Amount": "#Control:Amount/#Value",
+        "Comment": "#Control:Comment/#Value",
+        "ClaimTypes_ID": "#Control:ClaimTypes_ID/#SelectedValue"
+    },
+    "Target": {
+        "EntitySet": "Claims",
+        "Service": "/BenefitsClaim/Services/service1.service"
+    },
+    "ActionResult": {
+        "_Name": "create"
+    },
+    "_Type": "Action.Type.ODataService.CreateEntity"
+}
